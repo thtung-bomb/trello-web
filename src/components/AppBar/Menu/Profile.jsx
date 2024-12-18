@@ -1,7 +1,6 @@
 
 import { Box } from '@mui/material'
 import { useState } from 'react'
-import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
@@ -25,29 +24,22 @@ function Profile() {
 
   return (
     <Box>
-      <Button
-        id="basic-button-profile"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        sx={{
+      <Tooltip title="Account settings">
+        <IconButton
+          onClick={handleClick}
+          size="small"
+          sx={{ ml: 2 }}
+          aria-controls={open ? 'account-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+        >
+          <Avatar
+            sx={{ width: 30, height: 30 }}
+            alt='avatar' src='https://v5.mui.com/static/images/avatar/1.jpg'
 
-        }}
-      >
-        <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-          >
-            <Avatar sx={{ width: 30, height: 30 }} alt='avatar' src='https://v5.mui.com/static/images/avatar/1.jpg' />
-          </IconButton>
-        </Tooltip>
-      </Button>
+          />
+        </IconButton>
+      </Tooltip>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
