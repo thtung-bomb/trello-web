@@ -1,4 +1,4 @@
-import { cyan, deepOrange, orange } from '@mui/material/colors'
+// import { cyan, deepOrange, orange } from '@mui/material/colors'
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 
 // Create a theme instance.
@@ -8,20 +8,8 @@ const theme = extendTheme({
     boardBarHeight: '58px'
   },
   colorSchemes: {
-    light: {
-      palette: {
-        primary: {
-          main: '#26a69a',
-          secondary: deepOrange
-        }
-      }
-    },
-    dark: {
-      palette: {
-        primary: cyan,
-        secondary: orange
-      }
-    }
+    light: {},
+    dark: {}
   },
   components: {
     MuiCssBaseline: {
@@ -32,12 +20,12 @@ const theme = extendTheme({
             height: '8px'
           },
           '*::-webkit-scrollbar-thumb': {
-            backgroundColor: '#bdc3c7',
+            backgroundColor: '#dcdde1',
             borderRadius: '4px',
             transition: 'background-color 0.3s ease'
           },
           '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#26a69a'
+            backgroundColor: 'white'
           }
         }
       }
@@ -48,27 +36,29 @@ const theme = extendTheme({
         // Name of the slot
         root: {
           // Some CSS
-          textTransform: 'none'
+          textTransform: 'none',
+          borderWidth: '0.5 px',
+          '&:hover': {
+            borderWidth: '1 px'
+          }
         }
       }
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+        root: {
           fontSize: '0.875rem',
-          '.MuiOutlinedInput-notchedOutline': {
-            borderColor: theme.palette.primary.light
-          },
-          '&:hover': {
-            '.MuiOutlinedInput-notchedOutline': {
-              borderColor: theme.palette.primary.main
-            }
-          },
           '& fieldset': {
+            borderWidth: '0.5px !important'
+          },
+          '&:hover fieldset': {
+            borderWidth: '1px !important'
+          },
+          '&.Mui-focused fieldset': {
             borderWidth: '1px !important'
           }
-        })
+
+        }
       }
     }
   }
