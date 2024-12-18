@@ -15,6 +15,7 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import Tooltip from '@mui/material/Tooltip'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import Profile from './Menu/Profile'
+import AddIcon from '@mui/icons-material/Add'
 
 function AppBar() {
 
@@ -26,6 +27,7 @@ function AppBar() {
       alignItems: 'center',
       justifyContent: 'space-between',
       gap: 2,
+      paddingX: 2,
       overflowX: 'auto'
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }} >
@@ -41,7 +43,7 @@ function AppBar() {
           <Recent />
           <Started />
           <Templates />
-          <Button variant="outlined">Create</Button>
+          <Button variant="outlined" startIcon={<AddIcon />}>Create</Button>
         </Box>
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }} >
