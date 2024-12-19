@@ -38,7 +38,8 @@ function BoardBar() {
       overflowX: 'auto',
       bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#2c3e50' : '#1976d2'),
       borderTop: '1px solid #0bbfa5',
-      borderBottom: '1px solid #fff'
+      borderBottom: '1px solid #fff',
+      '&::-webkit-scrollbar-track': { m: 2 }
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }} >
         <Chip
