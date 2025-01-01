@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Box from '@mui/material/Box'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
@@ -16,9 +16,9 @@ import { Tooltip } from '@mui/material'
 import Button from '@mui/material/Button'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCards from './ListCards/ListCards'
+import { mapOrder } from '~/utils/sorts'
 
-
-function Columns() {
+function Columns({ column }) {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -27,6 +27,9 @@ function Columns() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
+
   return (
     <Box sx={{
       minWidth: '300px',
@@ -50,7 +53,7 @@ function Columns() {
           fontSize: '1rem',
           fontWeight: 'bold',
           cursor: 'pointer'
-        }}>Column Title</Typography>
+        }}>{column?.title}</Typography>
         <Box>
           <ExpandMoreIcon
             sx={{ color: 'text.primary', cursor: 'pointer' }}
@@ -107,7 +110,7 @@ function Columns() {
       </Box>
 
       {/* List Cards */}
-      <ListCards />
+      <ListCards cards={orderedCards} />
 
       {/* Footer */}
       <Box sx={{
