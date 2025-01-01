@@ -9,6 +9,7 @@ import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import Button from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
+import { capitalizeFirstLetter } from '~/utils/formartter'
 
 
 const MENU_STYLE = {
@@ -24,7 +25,7 @@ const MENU_STYLE = {
     bgcolor: 'primary'
   }
 }
-function BoardBar() {
+function BoardBar({ board }) {
 
   return (
     <Box sx={{
@@ -44,11 +45,11 @@ function BoardBar() {
         <Chip
           sx={MENU_STYLE}
           icon={<DashboardIcon sx={{ color: 'white' }} />}
-          label="thanhtung space" clickable />
+          label={board?.title} clickable />
         <Chip
           sx={MENU_STYLE}
           icon={<VpnLockIcon />}
-          label="Public/Private Workspace" clickable />
+          label={capitalizeFirstLetter(board?.type)} clickable />
         <Chip
           sx={MENU_STYLE}
           icon={<AddToDriveIcon />}
